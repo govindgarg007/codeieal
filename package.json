@@ -4,6 +4,7 @@
   "description": "my all social media website",
   "main": "index.js",
   "scripts": {
+    "start": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -19,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/govindgarg007/codeial/issues"
   },
-  "homepage": "https://github.com/govindgarg007/codeial#readme"
+  "homepage": "https://github.com/govindgarg007/codeial#readme",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
 }
