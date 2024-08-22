@@ -1,0 +1,23 @@
+{
+  "name": "codeieal",
+  "version": "1.0.0",
+  "description": "my all social media website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/govindgarg007/codeial.git"
+  },
+  "keywords": [
+    "social",
+    "media"
+  ],
+  "author": "Govind Garg",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/govindgarg007/codeial/issues"
+  },
+  "homepage": "https://github.com/govindgarg007/codeial#readme"
+}
