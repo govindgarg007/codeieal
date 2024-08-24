@@ -1,7 +1,17 @@
 const express = require('express');
 const app = express();
 const port = 9090;
+const expressLayouts = require('express-ejs-layouts');
 
+// Add static folder
+app.use(express.static('./assets'));
+
+// use layouts before routes so its render first
+app.use(expressLayouts);
+
+// extract styles and scripts
+app.set('layout extractStyles' ,true);
+app.set('layout extractScripts' ,true);
 
 // use express router from router dir
 app.use('/',require('./ routes'));
