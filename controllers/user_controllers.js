@@ -2,7 +2,11 @@ const User = require('../models/user');
 
 
 module.exports.home = function(request,response){
+    if(request.cookies.user_id){
     return response.end('<h1> User home page</h1>')
+    }else{
+        return response.redirect('/user/signIn')
+    }
 }
 
 module.exports.signUp = function(request,response){
@@ -39,7 +43,35 @@ module.exports.create = async function(request, response) {
     }
 };
 
+// Sign In and create session
+module.exports.createSession =async function(request,response){
+    try{
+        //find User
+        const user = await User.findOne({email:request.body.email});
 
-module.exports.createSession =function(request,response){
-    
+        //handle User found
+        if(user){
+        //handle password does not match
+        if(user.password !=request.body.password){
+            console.log("Password does not match");
+            return response.redirect('back');
+        }
+        //handle session creation
+        response.cookie('user_id',user.id);
+        return response.redirect('/user/profile');
+
+        }
+        //handle User Not found
+        else{
+            console.log("user not found");
+            return response.redirect('back');
+        }
+
+
+
+    }catch(err){
+         // Handle any errors that occur
+         console.log("Error in Signing In of user", err);
+         return response.status(500).send("Internal Server Error");
+    }
 }
